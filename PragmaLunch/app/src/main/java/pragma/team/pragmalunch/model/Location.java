@@ -77,7 +77,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "ClassLocation [address = " + address + ", country_id = " + country_id + ", zipcode = " + zipcode + ", locality = " + locality + ", longitude = " + longitude + ", latitude = " + latitude + ", city = " + city + "]";
+        return "ClassPojo [address = " + address + ", country_id = " + country_id + ", zipcode = " + zipcode + ", locality = " + locality + ", longitude = " + longitude + ", latitude = " + latitude + ", city = " + city + "]";
     }
 }
 
