@@ -1,10 +1,12 @@
 package pragma.team.pragmalunch.model;
 
+import java.io.Serializable;
+
 /**
  * Created by alvaromenezes on 12/7/16.
  */
 
-public class Restaurant {
+public class Restaurant implements Serializable {
 
     private String id;
     private String name;

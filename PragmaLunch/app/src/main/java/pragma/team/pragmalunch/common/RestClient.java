@@ -56,7 +56,7 @@ public class RestClient {
         return response;
     }
 
-    public List<Restaurant> getRestaurants(double latitude, double longitude) {
+    public ArrayList<Restaurant> getRestaurants(double latitude, double longitude) {
 
         Response response = getResponse(latitude, longitude);
 

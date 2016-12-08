@@ -11,9 +11,9 @@ public class Response {
 
     private Nearby_restaurants[] nearby_restaurants;
 
-    public List<Restaurant> getRestaurants() {
+    public ArrayList<Restaurant> getRestaurants() {
 
-        List<Restaurant> restaurants = new ArrayList<>();
+        ArrayList<Restaurant> restaurants = new ArrayList<>();
         for (Nearby_restaurants r : nearby_restaurants) {
             restaurants.add(r.restaurant);
         }
