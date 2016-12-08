@@ -109,7 +109,7 @@ public interface OnClickListener {
         super(view);
         mView = view;
         name = (TextView) view.findViewById(R.id.item_restaurant_name);
-        cuisine = (TextView) view.findViewById(R.id.item_product_cuisine);
+        cuisine = (TextView) view.findViewById(R.id.item_restaurant_cuisine);
         thumb = (ImageView) view.findViewById(R.id.item_restaurant_thumb);
 
     }

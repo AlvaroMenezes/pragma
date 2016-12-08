@@ -13,6 +13,19 @@ public class Restaurant implements Serializable {
     private Location location;
     private String cuisines;
     private String thumb;
+    private int votes;
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
+    }
+
+    public void setCuisines(String cuisines) {
+        this.cuisines = cuisines;
+    }
 
     public String getName() {
         return name;
