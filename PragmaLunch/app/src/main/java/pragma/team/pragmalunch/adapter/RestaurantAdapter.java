@@ -1,6 +1,7 @@
 package pragma.team.pragmalunch.adapter;
 
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 
 import pragma.team.pragmalunch.R;
 import pragma.team.pragmalunch.model.Restaurant;
+import pragma.team.pragmalunch.view.RestaurantDetailFragment;
+import pragma.team.pragmalunch.view.RestaurantsFragment;
 
 /**
  * Created by alvaromenezes on 12/8/16.
@@ -21,32 +24,29 @@ import pragma.team.pragmalunch.model.Restaurant;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
 
-private ArrayList<Restaurant> restaurants= null;
+    private ArrayList<Restaurant> restaurants = null;
     private Context context;
-/*
-public interface OnClickListener {
-    void onClick(Match match,View view);
-}*/
-    public RestaurantAdapter(ArrayList<Restaurant> restaurants ,Context context ){//int round, OnClickListener listener) {
+
+    private OnDetailListener onDetailListener;
+    private OnVoteListener onVoteListener;
+
+    public interface OnDetailListener {
+        void onClick(Restaurant restaurant);
+    }
+
+    public interface OnVoteListener {
+        void onClick(Restaurant restaurant);
+    }
+
+    public RestaurantAdapter(ArrayList<Restaurant> restaurants, Context context)//, OnDetailListener onDetailListener,
+                            // OnVoteListener onVoteListener) {
+    {
         this.restaurants = restaurants;
         this.context = context;
-       // mListener = listener;
-        //setMatches();
+       // this.onDetailListener = onDetailListener;
+       // this.onVoteListener = onVoteListener;
 
     }
-
-    private void setMatches() {
-      //  matches = new MatchController().getMaches(round);
-        //sort();
-    }
-
-    public void  refresh(){
-        setMatches();
-    }
-
-
-
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -56,37 +56,33 @@ public interface OnClickListener {
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder,  int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.restaurant = restaurants.get(position);
-
-
         holder.name.setText(holder.restaurant.getName());
         holder.cuisine.setText(holder.restaurant.getCuisines());
-
+        holder.adress.setText(holder.restaurant.getLocation().getAddress());
         Picasso.with(context).load(holder.restaurant.getThumb()).into(holder.thumb);
-   // }
-/*
-        holder.date.setText(holder.match.getDate());//todo formatar
-        holder.homeScore.setText(Integer.toString(holder.match.getHomeScore()));
-        holder.visitorScore.setText(Integer.toString(holder.match.getVisitorScore()));
 
-        int homeBadgeId = ctrl.getBadgeResId(hometeam.getBadge());
-        int visitorBadgeId = ctrl.getBadgeResId(Visitorteam.getBadge());
-
-        holder.homeBadge.setImageResource(homeBadgeId);
-        holder.visitorBadge.setImageResource(visitorBadgeId);
-
-      /*  holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
+               // onDetailListener.onClick(holder.restaurant);
 
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onClick(holder.match, v);
-                }
+
+               // AppCompatActivity activity = (AppCompatActivity) v.getContext();
+               // RestaurantDetailFragment myFragment =  RestaurantDetailFragment.newInstance(null,"");
+                //activity.getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_container, myFragment).addToBackStack(null).commit();
+
             }
-        });*/
+        });
+
+        holder.vote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // onVoteListener.onClick(holder.restaurant);
+            }
+        });
+
     }
 
 
@@ -96,25 +92,30 @@ public interface OnClickListener {
 
     }
 
- class ViewHolder extends RecyclerView.ViewHolder  {
-    public final View mView;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        public final View mView;
 
-    public final TextView name;
-    public final TextView cuisine;
-    public final ImageView thumb;
+        public final TextView name;
+        public final TextView adress;
+        public final TextView cuisine;
+        public final ImageView thumb;
+        public final ImageView vote;
+        public final ImageView detail;
 
-    public Restaurant restaurant;
+        public Restaurant restaurant;
 
-    public ViewHolder(View view) {
-        super(view);
-        mView = view;
-        name = (TextView) view.findViewById(R.id.item_restaurant_name);
-        cuisine = (TextView) view.findViewById(R.id.item_restaurant_cuisine);
-        thumb = (ImageView) view.findViewById(R.id.item_restaurant_thumb);
+        public ViewHolder(View view) {
+            super(view);
+            mView = view;
+            name = (TextView) view.findViewById(R.id.item_restaurant_name);
+            cuisine = (TextView) view.findViewById(R.id.item_restaurant_cuisine);
+            adress = (TextView) view.findViewById(R.id.item_restaurant_addres);
+            thumb = (ImageView) view.findViewById(R.id.item_restaurant_thumb);
+            vote = (ImageView) view.findViewById(R.id.item_restaurant_vote);
+            detail = (ImageView) view.findViewById(R.id.item_restaurant_detail);
+
+        }
+
 
     }
-
-
-
-}
 }

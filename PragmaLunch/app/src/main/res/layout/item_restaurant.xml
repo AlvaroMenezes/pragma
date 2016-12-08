@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:background="@color/backgroundList">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +21,33 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@android:drawable/ic_menu_camera" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="3dp">
+
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_marginRight="16dp"
+                android:id="@+id/item_restaurant_vote"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_not_selected" />
+
+            <ImageView
+                android:layout_margin="5dp"
+                android:id="@+id/item_restaurant_detail"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_detail" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/item_restaurant_name"
@@ -37,21 +63,32 @@
             android:layout_height="wrap_content"
             android:text="cuisine"
             android:textColor="@color/textGrey"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/item_restaurant_addres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="cuisine"
+            android:textColor="@color/textGrey"
             android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="3dp">
 
             <TextView
                 android:id="@+id/item_restaurant_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingRight="5dp"
                 android:text="@string/item_restaurant_vote"
                 android:textColor="@color/textGreyStrong"
                 android:textSize="16sp"
-                android:paddingRight="5dp"
                 android:textStyle="bold" />
 
             <TextView

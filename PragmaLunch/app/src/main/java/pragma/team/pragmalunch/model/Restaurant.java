@@ -14,6 +14,42 @@ public class Restaurant implements Serializable {
     private String cuisines;
     private String thumb;
     private int votes;
+    private int average_cost_for_two;
+    private String currency;
+    private String book_url;
+    private  UserRating user_rating;
+
+    public int getAverage_cost_for_two() {
+        return average_cost_for_two;
+    }
+
+    public UserRating getUser_rating() {
+        return user_rating;
+    }
+
+    public void setUser_rating(UserRating user_rating) {
+        this.user_rating = user_rating;
+    }
+
+    public void setAverage_cost_for_two(int average_cost_for_two) {
+        this.average_cost_for_two = average_cost_for_two;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getBook_url() {
+        return book_url;
+    }
+
+    public void setBook_url(String book_url) {
+        this.book_url = book_url;
+    }
 
     public int getVotes() {
         return votes;
