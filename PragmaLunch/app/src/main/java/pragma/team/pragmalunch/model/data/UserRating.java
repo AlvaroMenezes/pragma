@@ -1,10 +1,12 @@
-package pragma.team.pragmalunch.model;
+package pragma.team.pragmalunch.model.data;
+
+import java.io.Serializable;
 
 /**
  * Created by alvaromenezes on 12/8/16.
  */
 
-public class UserRating {
+public class UserRating implements Serializable {
     private String aggregate_rating;
     private String rating_text;
     private String rating_color;

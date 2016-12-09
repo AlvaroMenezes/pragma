@@ -1,14 +1,16 @@
-package pragma.team.pragmalunch.model;
+package pragma.team.pragmalunch.model.data;
+
+import java.io.Serializable;
 
 /**
  * Created by alvaromenezes on 12/7/16.
  */
 
-public class Location {
+public class Location implements Serializable {
     private String address;
 
     private String country_id;
-
+    
     private String zipcode;
 
     private String locality;

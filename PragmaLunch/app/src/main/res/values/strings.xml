@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">Pragma Lunch</string>
 
-    <string name="item_restaurant_vote">Votes:</string>
+    <string name="book_a_table">Book a Table</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="from_five">/5</string>
+    <string name="item_restaurant_vote">Votes:</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="load_restaurants">Loading restaurants...</string>
+    <string name="average_cost_four_two">Average cost for two:</string>
+    <string name="user_ratings">User Ratings</string>
+    <string name="based_on">Based on %s votes</string>
+
+
 </resources>

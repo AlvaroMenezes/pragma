@@ -7,5 +7,8 @@
     <color name="textGrey">#595959</color>
     <color name="textRed">#990000</color>
     <color name="textGreyStrong">#303030</color>
+    <color name="whiteTransparent">#bfffffff</color>
+
+
 
 </resources>

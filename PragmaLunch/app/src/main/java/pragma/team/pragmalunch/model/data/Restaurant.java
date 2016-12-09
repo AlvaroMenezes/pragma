@@ -1,4 +1,4 @@
-package pragma.team.pragmalunch.model;
+package pragma.team.pragmalunch.model.data;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ public class Restaurant implements Serializable {
     private int average_cost_for_two;
     private String currency;
     private String book_url;
-    private  UserRating user_rating;
+    private UserRating user_rating;
 
     public int getAverage_cost_for_two() {
         return average_cost_for_two;
