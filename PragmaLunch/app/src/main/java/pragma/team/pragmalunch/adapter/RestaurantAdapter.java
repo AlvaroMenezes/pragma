@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import pragma.team.pragmalunch.R;
 import pragma.team.pragmalunch.interfaces.OnRestaurantDetailListener;
+import pragma.team.pragmalunch.interfaces.OnVoteListener;
 import pragma.team.pragmalunch.model.data.Restaurant;
 
 /**
@@ -26,22 +27,23 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     private Context context;
 
     private OnRestaurantDetailListener restaurantDetailListener;
-    //private OnVoteListener onVoteListener;
+    private OnVoteListener onVoteListener;
 
-    public interface OnDetailListener {
-        void onClick(Restaurant restaurant);
-    }
-
-    public interface OnVoteListener {
-        void onClick(Restaurant restaurant);
-    }
-
-    public RestaurantAdapter(ArrayList<Restaurant> restaurants, Context context, OnRestaurantDetailListener restaurantDetailListener) {
+    public RestaurantAdapter(ArrayList<Restaurant> restaurants, Context context, OnRestaurantDetailListener restaurantDetailListener, OnVoteListener onVoteListener) {
         this.restaurants = restaurants;
         this.context = context;
         this.restaurantDetailListener = restaurantDetailListener;
-        // this.onVoteListener = onVoteListener;
+        this.onVoteListener = onVoteListener;
+    }
 
+    public void setVote(String restaurantID) {
+        for (Restaurant r : restaurants) {
+            if (r.getId().equalsIgnoreCase(restaurantID)) {
+                r.setHasVoteToday(true);
+            }
+        }
+
+        notifyDataSetChanged();
     }
 
     @Override
@@ -60,8 +62,18 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
         holder.votesTotal.setText(String.valueOf(holder.restaurant.getVotes()));
 
+        if (holder.restaurant.hasVoteToday()) {
+            holder.vote.setBackgroundResource(R.drawable.ic_selected);
+        } else {
+            holder.vote.setBackgroundResource(R.drawable.ic_not_selected);
+        }
 
-        Picasso.with(context).load(holder.restaurant.getThumb()).into(holder.thumb);
+        if (holder.restaurant.getThumb() != null && !holder.restaurant.getThumb().trim().isEmpty()) {
+
+            Picasso.with(context).load(holder.restaurant.getThumb()).into(holder.thumb);
+        } else {
+            Picasso.with(context).load(R.drawable.image_not_available).into(holder.thumb);
+        }
 
         holder.detail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,10 +85,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
         holder.vote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // onVoteListener.onClick(holder.restaurant);
+                onVoteListener.onVote(holder.restaurant.getId());
             }
         });
-
     }
 
 
@@ -110,9 +121,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             vote = (ImageView) view.findViewById(R.id.item_restaurant_vote);
             detail = (ImageView) view.findViewById(R.id.item_restaurant_detail);
 
-
         }
-
 
     }
 }

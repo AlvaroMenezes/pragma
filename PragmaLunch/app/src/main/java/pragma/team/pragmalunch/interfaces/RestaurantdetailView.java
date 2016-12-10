@@ -9,6 +9,8 @@ import android.view.View;
 
 public interface RestaurantDetailView {
     void showDetails();
+
     Context getContext();
+
     View getView();
 }

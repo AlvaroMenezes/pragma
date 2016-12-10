@@ -11,4 +11,6 @@ import pragma.team.pragmalunch.model.data.Restaurant;
 public interface ApiService {
 
     ArrayList<Restaurant> getRestaurants(double latitude, double longitude);
+
+    void onVote(String restaurantID, String IMEI);
 }

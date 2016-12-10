@@ -1,5 +1,7 @@
 package pragma.team.pragmalunch.model.service;
 
+import android.os.SystemClock;
+
 import java.util.ArrayList;
 
 import pragma.team.pragmalunch.common.Settings;
@@ -11,6 +13,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -25,6 +28,10 @@ public class RestClient implements ApiService {
         @Headers(Settings.ZOMATO_USER_KEY_HEADER)
         @GET("geocode")
         Call<Response> getResponse(@Query("lat") double latitude, @Query("lon") double longitude);
+
+        @Headers(Settings.ZOMATO_USER_KEY_HEADER)
+        @POST("VOTE")
+        Call<Response> setVoteFAKE(@Query("imei") String imei, @Query("restaurantID") String restaurantID);
 
     }
 
@@ -60,5 +67,28 @@ public class RestClient implements ApiService {
         return response.getRestaurants();
 
     }
+
+
+    /**
+     * THIS IS AN FAKE OPERATION
+     *
+     * @param restaurantID
+     * @param IMEI
+     */
+    @Override
+    public void onVote(String restaurantID, String IMEI) {
+
+        /*Response response = null;
+        try {
+            Call<Response> call = getServiceInterface().setVoteFAKE(restaurantID, IMEI);
+            response = call.execute().body();
+
+        } catch (Exception e) {
+        }*/
+
+        SystemClock.sleep(3000);
+
+    }
+
 
 }

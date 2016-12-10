@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,7 +21,7 @@ import pragma.team.pragmalunch.model.data.Restaurant;
  * Created by alvaromenezes on 12/9/16.
  */
 
-public class RestaurantDetailPresenterImpl implements RestaurantDetailPresenter , View.OnClickListener{
+public class RestaurantDetailPresenterImpl implements RestaurantDetailPresenter, View.OnClickListener {
 
     private RestaurantDetailView view;
     private Restaurant restaurant;
@@ -61,6 +62,14 @@ public class RestaurantDetailPresenterImpl implements RestaurantDetailPresenter 
     @Override
     public void showDetails() {
 
+        if (restaurant.getThumb() != null && !restaurant.getThumb().trim().isEmpty()) {
+
+            Picasso.with(view.getContext()).load(restaurant.getThumb()).into(image);
+        } else {
+            Picasso.with(view.getContext()).load(R.drawable.image_not_available).into(image);
+        }
+
+
         Picasso.with(view.getContext()).load(restaurant.getThumb()).into(image);
         name.setText(restaurant.getName());
         cuisine.setText(restaurant.getCuisines());
@@ -79,6 +88,12 @@ public class RestaurantDetailPresenterImpl implements RestaurantDetailPresenter 
 
     @Override
     public void openUrl(String url) {
+
+        if (url == null || url.trim().isEmpty()) {
+            Toast.makeText(view.getContext(), view.getContext().getString(R.string.book_not_available), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         view.getContext().startActivity(i);

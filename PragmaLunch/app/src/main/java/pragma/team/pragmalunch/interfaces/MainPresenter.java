@@ -10,9 +10,21 @@ import pragma.team.pragmalunch.model.data.Restaurant;
 
 public interface MainPresenter {
 
+    void init();
+
     void onTransaction(Fragment fragment);
 
     void onDetailRestaurant(Restaurant restaurant);
 
-    void startNetwork();
+
+
+    void clearOldVote();
+
+    void showMostVotedYesterday();
+
+    void setNotificationScheduler();
+
+    MainView getView();
+
+
 }

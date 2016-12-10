@@ -8,17 +8,11 @@ import java.io.Serializable;
 
 public class Location implements Serializable {
     private String address;
-
     private String country_id;
-    
     private String zipcode;
-
     private String locality;
-
     private String longitude;
-
     private String latitude;
-
     private String city;
 
     public String getAddress() {

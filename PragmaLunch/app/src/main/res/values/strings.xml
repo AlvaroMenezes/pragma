@@ -1,12 +1,20 @@
 <resources>
     <string name="app_name">Pragma Lunch</string>
+    <string name="most_voted_yesterday">Most voted yesterday</string>
+
+    <string name="most_voted_yesterday_load">Loading most voted yesterday</string>
+
+    <string name="already_vote_today">Sorry, you already voted today!</string>
+    <string name="votes_only_untill">Sorry, you can vote until 1pm!</string>
 
     <string name="book_a_table">Book a Table</string>
+    <string name="book_not_available">Book not available</string>
 
     <string name="from_five">/5</string>
     <string name="item_restaurant_vote">Votes:</string>
     <string name="please_wait">Please Wait</string>
     <string name="load_restaurants">Loading restaurants...</string>
+    <string name="send_vote">Send your vote...</string>
     <string name="average_cost_four_two">Average cost for two:</string>
     <string name="user_ratings">User Ratings</string>
     <string name="based_on">Based on %s votes</string>

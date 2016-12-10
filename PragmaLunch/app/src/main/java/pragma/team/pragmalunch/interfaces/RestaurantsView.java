@@ -15,10 +15,15 @@ public interface RestaurantsView {
 
     void setupList(View view);
 
+    void hasVotedTodayError();
+
+    void updateListWithVote(String restaurantID);
+
     void loadRestaurants(ArrayList<Restaurant> restaurants);
 
+    View getView();
 
     Context getContext();
 
-
+    void hasTimeError();
 }

@@ -6,5 +6,6 @@ package pragma.team.pragmalunch.interfaces;
 
 public interface RestaurantDetailPresenter {
     void showDetails();
+
     void openUrl(String url);
 }

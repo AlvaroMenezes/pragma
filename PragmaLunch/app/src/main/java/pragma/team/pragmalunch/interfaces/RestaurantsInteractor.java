@@ -1,13 +1,20 @@
 package pragma.team.pragmalunch.interfaces;
 
-import android.content.Context;
-
 /**
  * Created by alvaromenezes on 12/8/16.
  */
 
 public interface RestaurantsInteractor {
 
-    void syncronize(Context context);
+    void syncronize();
+
+    void saveVote(String restaurantID);
+
+    boolean hasVotedToday();
+
+    String getVoteID();
+
+    void syncronizeVote(String restaurantID);
+
 
 }

@@ -18,6 +18,15 @@ public class Restaurant implements Serializable {
     private String currency;
     private String book_url;
     private UserRating user_rating;
+    private boolean hasVoteToday;
+
+    public boolean hasVoteToday() {
+        return hasVoteToday;
+    }
+
+    public void setHasVoteToday(boolean hasVoteToday) {
+        this.hasVoteToday = hasVoteToday;
+    }
 
     public int getAverage_cost_for_two() {
         return average_cost_for_two;
