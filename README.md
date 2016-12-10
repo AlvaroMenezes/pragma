@@ -4,15 +4,19 @@ Android Java
 * AndroidStudio
 * SourceTree
 * Github
+
 ## External Libraries
 * Retrofit
 * Picasso
 * Github
+
 ## Architecture
 * MVP
 * Observer
+
 ## REST API
 * Zomato
+
 ## Comments
 
 First story that I considerate was number 5, I target minimun SDK 10 to cover 100% devices but when I implement notification I need up minimun to 16.<br>
